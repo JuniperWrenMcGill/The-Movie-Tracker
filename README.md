@@ -1,5 +1,17 @@
 # Group-Project-1
 
+## User Story
+- AS A user
+- I WANT to add a movie title that I'd like to see to a website
+- SO THAT I can see where they're streaming.
+- GIVEN I want to find out where to watch a movie
+- WHEN I input the title
+- THEN I am presented with an image of the cover, where I can stream the movie, a quote from the movie, and an option to save that title.
+- WHEN I save a title, it is stored somewhere on the screen
+- THEN I can come back to it later after refresh or browser close, and still find where its streaming without retyping it
+- WHEN I have seen a title
+- THEN I can either mark it as viewed or remove it from the library
+
 ## Description
 
 Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
