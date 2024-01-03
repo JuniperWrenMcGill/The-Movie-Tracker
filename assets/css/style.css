@@ -34,7 +34,14 @@ h6 {
 .sections {
     display: flex;
     flex-direction: column;
-    width: 50%;
+}
+
+#sectionone {
+    width: 50%
+}
+
+#sectiontwo {
+    width: 50%
 }
 
 .mission {
@@ -91,6 +98,10 @@ h6 {
    }
 
    h5 {
+    text-align: center;
+   }
+
+   h6 {
     text-align: center;
    }
 
