@@ -39,8 +39,6 @@ body {
     /* border-bottom: none;
     /* text-decoration: none; */ 
     /* I am trying to remove the constant underline */
-    
-  
   }
   
   input[type="submit"] {
@@ -51,6 +49,11 @@ body {
     border-radius: 15px;
     cursor: pointer;
   }
+
+  #movieTitleInput {
+    margin-left: 10px;
+  }
+  
 .footer {
     width: 100%;
 }
