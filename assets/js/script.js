@@ -17,6 +17,7 @@ function omdbTest (){
             console.log(returned.Poster);
             url = returned.Poster;
             $('.returned').attr("src", url);
+            $('.returned').attr("style", "visibility:visible;");
         }
     })
 }
@@ -28,6 +29,7 @@ $('#first_name2').bind("enterKey",function(e){
     omdbTest(search);
     $('input').val("");
  });
+
  $('#first_name2').keyup(function(e){
      if(e.keyCode == 13)
      {
