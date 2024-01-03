@@ -51,6 +51,9 @@ async function streamingServicesTest(title){
         
         for(var i = 0; i < result.result[0].streamingInfo.us.length; i++){
             console.log(result.result[0].streamingInfo.us[i].service);
+            var streamService = document.createElement('li');
+            streamService.textContent="Streaming location: " + result.result[0].streamingInfo.us[i].service + " Quality: " + result.result[0].streamingInfo.us[i].quality + " Type: " + result.result[0].streamingInfo.us[i].streamingType;
+            document.querySelector(".streaming-list").appendChild(streamService);
         }
 
     } catch (error) {
