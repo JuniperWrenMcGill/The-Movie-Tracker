@@ -1,7 +1,10 @@
 body {
-    background-image: url('denise-jans-Lq6rcifGjOU-unsplash.jpg');
+    background-image: url('tyson-moultrie-BQTHOGNHo08-unsplash.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .brand-logo {
@@ -11,4 +14,91 @@ body {
 .row {
     margin: 50px;
 }
+
+.footer {
+    width: 100%;
+}
+
+h5 {
+    font-weight: bolder;
+    font-size: 30px;
+    margin: 10px 20px 10px 20px
+}
+
+h6 {
+    font-weight: bolder;
+    font-size: 30px;
+    margin: 10px 20px 10px 20px;
+}
+
+.sections {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.mission {
+    font-weight: bold;
+    margin: 10px 20px 10px 60px;
+    font-size: 20px;
+}
+
+.page-footer {
+    background-image: linear-gradient( #a15230, #4c1b0c);
+    color: #c7bdba;
+    font-family: "Oswald", sans-serif;
+    font-size: 30px;
+    margin-top: auto;
+}
+
+.links {
+    display: block;
+    text-decoration: underline;
+    font-weight: bold;
+    color: #151312;
+    margin: 10px 20px 10px 60px;
+    font-size: 25px;
+}
+
+.container {
+    margin: 10px 20px 10px 20px;
+    font-size: 20px;
+}
+
+.br {
+    margin: 10px 20px 10px 20px;
+    text-align: right;
+    width: 100%;
+    font-size: 20px;
+}
+
+@media (max-width: 800px) {
+    
+   #sectionone {
+    width: 100%;
+   }
+
+   #sectiontwo {
+    width: 100%;
+   }
+
+   .mission {
+    text-align: center;
+   }
+
+   .links {
+    text-align: center;
+   }
+
+   h5 {
+    text-align: center;
+   }
+
+   .footer-copyright {
+    font-size: 15px;
+   }
+}
+
+
+
 
