@@ -51,6 +51,8 @@ body {
     border-radius: 15px;
     cursor: pointer;
   }
+
+
 .footer {
     width: 100%;
 }
@@ -69,7 +71,7 @@ h6 {
 
 .sections {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 #sectionone {
@@ -117,6 +119,12 @@ h6 {
 
 @media (max-width: 800px) {
     
+   #sections {
+   display: flex;
+   flex-direction: row; /* Change to row to align items horizontally */
+   justify-content: space-between; /* Added to create space between the sections */
+   }
+
    #sectionone {
     width: 100%;
    }
@@ -131,6 +139,8 @@ h6 {
 
    .links {
     text-align: center;
+    display: flex; /* Used flexbox to align items */
+    justify-content: space-between; /* Added space between items */
    }
 
    h5 {
