@@ -47,7 +47,7 @@ async function streamingServicesTest(title){
         const response = await fetch(url, options);
         const result = await response.json();
         var resultArray = result[0];
-        console.log(resultArray);
+        console.log(resultArray[0].streamingInfo[0]);
 
 
 
@@ -59,17 +59,12 @@ async function streamingServicesTest(title){
     }
 }
 
-$('#first_name2').bind("enterKey",function(e){
+
+$('#movieSearchForm').on("submit", function(e)
+{
     e.preventDefault();
     search = $('input').val();
     omdbTest(search);
     streamingServicesTest(search);
     $('input').val("");
- });
-
- $('#first_name2').keyup(function(e){
-     if(e.keyCode == 13)
-     {
-         $(this).trigger("enterKey");
-     }
- });
+})
