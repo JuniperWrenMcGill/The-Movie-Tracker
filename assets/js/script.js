@@ -1,6 +1,18 @@
 var posterUrl = "";
 var search = "";
-function omdbTest (){
+
+//localStorage work
+//I want to store a title, poster link, a bool for watched or not watched, and the links to the API calls.
+
+var localObj = {
+    title: "",
+    posterLink: "",
+    watched: false,
+};
+
+//Once a user clicks a save button, localObj will be populated and stored locally into an array of other objects
+
+function omdbTest (cb){
     var link = "https://www.omdbapi.com/?apikey=17b8058a&t=" + search;
     fetch (link)
     .then((response)=> response.json())
@@ -18,6 +30,7 @@ function omdbTest (){
             posterUrl = returned.Poster;
             $('.returned').attr("src", posterUrl);
             $('.returned').attr("style", "visibility:visible;");
+            cb(search, posterUrl);
         }
     })
 }
@@ -29,7 +42,6 @@ async function streamingServicesTest(title){
         if (strArray[i] == " ")
         strArray[i] = '%20';
     }
-
     console.log(strArray.join(""));
     str = strArray.join("");
     var link = "https://streaming-availability.p.rapidapi.com/search/title?title=" + str + '&country=us&show_type=all&output_language=en';
@@ -61,12 +73,44 @@ async function streamingServicesTest(title){
     }
 }
 
+function mockSave(movieTitle, movieURL){
+    var retArray = JSON.parse(localStorage.getItem("key"));
+    
+    if (retArray == null){
+    //if there's nothing in localStorage, create an array.
+    var array = [];
+
+    //Populate localObj with information either passed to function or from global vars
+    localObj.title = movieTitle;
+    localObj.watched = false;
+    localObj.posterLink = movieURL;
+    
+    //place localObj into the array
+    array[0]=localObj;
+
+    //give that array to localStorage
+    localStorage.setItem("key", JSON.stringify(array));
+
+
+    }else if (retArray !== null){
+        //if there is already an array in localStorage, populate localObj and push it into the returned, local array.
+
+        //Populate localObj with information either passed to function or from global vars
+        localObj.title = movieTitle;
+        localObj.watched = false;
+        localObj.posterLink = movieURL;
+
+        retArray.push(localObj);
+        var newString = JSON.stringify(retArray);
+        localStorage.setItem("key", newString);
+    }
+}
 
 $('#movieSearchForm').on("submit", function(e)
 {
     e.preventDefault();
     search = $('input').val();
-    omdbTest(search);
-    streamingServicesTest(search);
+    omdbTest(mockSave);
+    // streamingServicesTest(search);
     $('input').val("");
 })
