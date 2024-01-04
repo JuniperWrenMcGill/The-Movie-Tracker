@@ -112,7 +112,7 @@ $('#movieSearchForm').on("submit", function(e)
     e.preventDefault();
     search = $('input').val();
     omdbCall();
-    // streamingServicesTest(search);
+    streamingServicesTest(search);
     $('input').val("");
 })
 
@@ -123,6 +123,11 @@ $('#saveBtn').on("click", function(e){
         //populateFavorites(posterUrl);
     }
     clearFavorites();
+})
+
+$("#clearBtn").on("click",function(e){
+    e.preventDefault();
+    localStorage.clear();
 })
 
 //need a function to check for local storage and create elements represnting saved objs
