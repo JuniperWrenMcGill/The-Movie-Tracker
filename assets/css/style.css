@@ -91,6 +91,10 @@ h5 {
     border: solid 4px #C7BDBA;
 }
 
+.quote {
+    margin: 15px;
+}
+
 h5 {
     font-weight: bolder;
     font-size: 30px;

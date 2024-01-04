@@ -12,6 +12,10 @@ var localObj = {
 
 //Once a user clicks a save button, localObj will be populated and stored locally into an array of other objects
 
+function hideElement() {
+    $(".quote").attr("style", "visibility:hidden");
+}
+
 function omdbCall (){
     var link = "https://www.omdbapi.com/?apikey=17b8058a&t=" + search;
     fetch (link)
@@ -34,6 +38,7 @@ function omdbCall (){
             $('#saveBtn').attr("style", "visibility:visible;");
         }
     })
+    hideElement();
 }
 
 async function streamingServicesTest(title){
