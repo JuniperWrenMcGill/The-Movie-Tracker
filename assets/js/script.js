@@ -122,6 +122,7 @@ $('#saveBtn').on("click", function(e){
         saveSearch(search,posterUrl);
         //populateFavorites(posterUrl);
     }
+    clearFavorites();
 })
 
 //need a function to check for local storage and create elements represnting saved objs
@@ -140,6 +141,13 @@ function populateFavorites(){
             $("#library").append(moviePoster);
         }
     }
+}
+
+function clearFavorites(){
+    var lib = document.querySelector("#library");
+
+    var children = document.querySelector(".moviePoster");
+    lib.removeChild(children);
 }
 
 //shows locally stored favorites on load
