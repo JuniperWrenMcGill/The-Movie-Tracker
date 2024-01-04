@@ -33,7 +33,7 @@ body {
 
 .returned {
     visibility: hidden;
-    width: 25%;
+    width: 30%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -70,6 +70,7 @@ body {
     outline: none;
     border-style:none;
     border-color:#a15230;
+    cursor: grab;
 }
 
 #btn:active {
