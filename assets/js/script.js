@@ -46,14 +46,16 @@ async function streamingServicesTest(title){
     try {
         const response = await fetch(url, options);
         const result = await response.json();
-        var resultArray = result[0];
-        console.log(resultArray[0].streamingInfo[0]);
+        // var resultArray = result[0];
+        console.log(result.result[0].streamingInfo.us);
+        
+        for(var i = 0; i < result.result[0].streamingInfo.us.length; i++){
+            console.log(result.result[0].streamingInfo.us[i].service);
+            var streamService = document.createElement('li');
+            streamService.textContent="Streaming location: " + result.result[0].streamingInfo.us[i].service + " Quality: " + result.result[0].streamingInfo.us[i].quality + " Type: " + result.result[0].streamingInfo.us[i].streamingType;
+            document.querySelector(".streaming-list").appendChild(streamService);
+        }
 
-
-
-        // for (var i = 0; i<.length; i++){
-
-        // }
     } catch (error) {
         console.error(error);
     }
