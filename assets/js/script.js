@@ -12,7 +12,7 @@ var localObj = {
 
 //Once a user clicks a save button, localObj will be populated and stored locally into an array of other objects
 
-function omdbTest (cb){
+function omdbCall (){
     var link = "https://www.omdbapi.com/?apikey=17b8058a&t=" + search;
     fetch (link)
     .then((response)=> response.json())
@@ -30,7 +30,8 @@ function omdbTest (cb){
             posterUrl = returned.Poster;
             $('.returned').attr("src", posterUrl);
             $('.returned').attr("style", "visibility:visible;");
-            cb(search, posterUrl);
+            // cb(search, posterUrl);
+            $('#saveBtn').attr("style", "visibility:visible;");
         }
     })
 }
@@ -73,7 +74,7 @@ async function streamingServicesTest(title){
     }
 }
 
-function mockSave(movieTitle, movieURL){
+function saveSearch(movieTitle, movieURL){
     var retArray = JSON.parse(localStorage.getItem("key"));
     
     if (retArray == null){
@@ -110,7 +111,14 @@ $('#movieSearchForm').on("submit", function(e)
 {
     e.preventDefault();
     search = $('input').val();
-    omdbTest(mockSave);
+    omdbCall();
     // streamingServicesTest(search);
     $('input').val("");
+})
+
+$('#saveBtn').on("click", function(e){
+    e.preventDefault();
+    if(search !== null){
+        saveSearch(search,posterUrl);
+    }
 })
