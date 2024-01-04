@@ -68,13 +68,15 @@ body {
     color: #C7BDBA;
     border-radius: 13px;
     outline: none;
-    border-style:none;
+    border-style:solid;
     border-color:#a15230;
     cursor: grab;
 }
 
 #btn:active {
     border-style:outset;
+    border-style:solid;
+    border-color:#a15230;
 }
 
 
