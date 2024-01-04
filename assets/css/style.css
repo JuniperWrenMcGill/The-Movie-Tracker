@@ -79,6 +79,15 @@ body {
     border-color:#a15230;
 }
 
+#saveBtn {
+    border-radius: 5px;
+    background-image: linear-gradient( #4c1b0c,#a15230);
+    border: solid 3px #C7BDBA;
+    cursor: grab;
+    width: 25%;
+    color: #C7BDBA;
+    font-family: "Oswald", sans-serif;
+}
 
   input[type="search"] {
     padding: 10px;
