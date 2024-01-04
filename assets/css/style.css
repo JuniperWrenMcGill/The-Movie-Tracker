@@ -12,7 +12,36 @@ body {
 }
 
 .row {
-    margin: 50px;
+    margin: 100px 50px;
+    background-image: linear-gradient( #a15230, #4c1b0c);
+    width: 50%;
+    border-radius: 10px;
+    border: solid 4px #C7BDBA;
+}
+
+.card-content {
+    margin: 15px;
+    color: #c7bdba;
+    font-size: 30px;
+    font-family: "Oswald", sans-serif;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-stretch: expanded;
+}
+
+.returned {
+    visibility: hidden;
+    width: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* filter: drop-shadow(5px 5px); */
+}
+
+.card-title {
+    visibility: hidden;
 }
 
 /* search bar styling */
@@ -27,10 +56,17 @@ body {
     margin-top: 1%;
     margin-left: 3%;
     margin-right: 3%;
+    border: solid 3px #C7BDBA;
   }
 
 #movieTitleInput {
-    margin-left: 10px;
+    margin-left: 20px;
+}
+
+#btn {
+    background-color: #a15230;
+    color: #C7BDBA;
+    border-radius: 13px;
 }
 
   input[type="search"] {
@@ -78,7 +114,6 @@ h5 {
 }
 
 .mission {
-    font-weight: bold;
     margin: 10px 20px 10px 60px;
     font-size: 20px;
 }
@@ -120,8 +155,8 @@ h5 {
 @media (max-width: 800px) {
     
     .sections {
-        display: flex;
-        flex-direction: column;
+    display: flex;
+    flex-direction: column;
     }
 
    #sectionOne {
