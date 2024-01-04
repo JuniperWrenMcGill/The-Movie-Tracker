@@ -45,6 +45,7 @@ body {
 
 .moviePoster{
     width: 200px;
+    margin: 5px;
 }
 
 #library {
@@ -52,7 +53,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     margin: 20px;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 /* search bar styling */
