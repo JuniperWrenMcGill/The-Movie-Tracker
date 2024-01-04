@@ -2,7 +2,7 @@ var posterUrl = "";
 var search = "";
 
 //localStorage work
-//I want to store a title, poster link, a bool for watched or not watched, and the links to the API calls.
+//store a title, poster link, a bool for watched or not watched, and the links to the API calls.
 
 var localObj = {
     title: "",
