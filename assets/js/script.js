@@ -118,7 +118,20 @@ $('#movieSearchForm').on("submit", function(e)
 
 $('#saveBtn').on("click", function(e){
     e.preventDefault();
-    if(search !== null){
+    if(search !== null && search !== ""){
         saveSearch(search,posterUrl);
     }
 })
+
+//need a function to check for local storage and create elements represnting saved objs
+
+function populateFavorites(){
+    var retArray = JSON.parse(localStorage.getItem("key"));
+    if (retArray == null){
+        return;
+    }else if (retArray !== null){
+        for (var i = 0; i < retArray.length; i++){
+            $
+        }
+    }
+}
