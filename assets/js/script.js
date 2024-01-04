@@ -117,7 +117,7 @@ $('#movieSearchForm').on("submit", function(e)
     e.preventDefault();
     search = $('input').val();
     omdbCall();
-    streamingServicesTest(search);
+    // streamingServicesTest(search);
     $('input').val("");
 })
 
@@ -125,19 +125,19 @@ $('#saveBtn').on("click", function(e){
     e.preventDefault();
     if(search !== null && search !== ""){
         saveSearch(search,posterUrl);
-        //populateFavorites(posterUrl);
+        populateFavorites();
     }
-    clearFavorites();
 })
 
 $("#clearBtn").on("click",function(e){
     e.preventDefault();
     localStorage.clear();
+    clearFavorites();
 })
 
-//need a function to check for local storage and create elements represnting saved objs
 
 function populateFavorites(){
+    clearFavorites();
     var retArray = JSON.parse(localStorage.getItem("key"));
     if (retArray == null){
         return;
@@ -154,10 +154,7 @@ function populateFavorites(){
 }
 
 function clearFavorites(){
-    var lib = document.querySelector("#library");
-
-    var children = document.querySelector(".moviePoster");
-    lib.removeChild(children);
+    $("#library").empty();
 }
 
 //shows locally stored favorites on load
