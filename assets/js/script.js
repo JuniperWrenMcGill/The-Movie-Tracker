@@ -29,7 +29,6 @@ async function streamingServicesTest(title){
         if (strArray[i] == " ")
         strArray[i] = '%20';
     }
-
     console.log(strArray.join(""));
     str = strArray.join("");
     var link = "https://streaming-availability.p.rapidapi.com/search/title?title=" + str + '&country=us&show_type=all&output_language=en';
@@ -67,6 +66,6 @@ $('#movieSearchForm').on("submit", function(e)
     e.preventDefault();
     search = $('input').val();
     omdbTest(search);
-    streamingServicesTest(search);
+    // streamingServicesTest(search);
     $('input').val("");
 })
