@@ -123,6 +123,7 @@ h5 {
 
 .moviePoster{
     width: 200px;
+    margin: 5px;
 }
 
 #library {
@@ -130,7 +131,7 @@ h5 {
     flex-direction: row;
     flex-wrap: wrap;
     margin: 20px;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 #movieSearchForm {
