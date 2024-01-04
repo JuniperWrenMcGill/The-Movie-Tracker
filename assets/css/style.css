@@ -15,12 +15,13 @@ body {
     margin: 50px;
 }
 
+/* search bar styling */
 #movieSearchForm {
     display: flex;
     gap: 10px;
-    border-color:#C7BDBA;
+    border-color: #4c1b0c;
     border: 15px whitesmoke;
-    background-color: #C7BDBA;
+    background-color: #a15230;
     border-radius: 15px;
     justify-content: center;
     margin-top: 1%;
@@ -36,14 +37,12 @@ body {
     box-sizing: border-box;
     outline:none;
     text-decoration: none;
-    /* border-bottom: none;
-    /* text-decoration: none; */ 
-    /* I am trying to remove the constant underline */
+ 
   }
   
   input[type="submit"] {
-    background-color: #C7BDBA;
-    color: #fff;
+    background-color: #a15230;
+    color:#C7BDBA;
     border: none;
     padding: 10px 15px;
     border-radius: 15px;
@@ -54,6 +53,7 @@ body {
     margin-left: 10px;
   }
   
+  /* footer styling */
 .footer {
     width: 100%;
 }
@@ -69,7 +69,7 @@ h6 {
     font-size: 30px;
     margin: 10px 20px 10px 20px;
 }
-
+/* aligned footer sections */
 .sections {
     display: flex;
     flex-direction: row;
@@ -126,11 +126,11 @@ h6 {
    justify-content: space-between; /* Added to create space between the sections */
    }
 
-   #sectionone {
+   #sectionOne {
     width: 100%;
    }
 
-   #sectiontwo {
+   #sectionwo {
     width: 100%;
    }
 
