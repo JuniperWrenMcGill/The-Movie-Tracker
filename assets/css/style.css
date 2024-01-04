@@ -86,6 +86,9 @@ body {
     width: 25%;
     color: #C7BDBA;
     font-family: "Oswald", sans-serif;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
   input[type="search"] {
