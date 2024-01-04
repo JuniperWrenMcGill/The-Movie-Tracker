@@ -67,7 +67,15 @@ body {
     background-color: #a15230;
     color: #C7BDBA;
     border-radius: 13px;
+    outline: none;
+    border-style:none;
+    border-color:#a15230;
 }
+
+#btn:active {
+    border-style:outset;
+}
+
 
   input[type="search"] {
     padding: 10px;
