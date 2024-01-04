@@ -60,18 +60,18 @@ input[type="search"] {
     margin-right: auto;
 }
   
-  input[type="submit"] {
+input[type="submit"] {
     background-color: #a15230;
     color:#C7BDBA;
     border: none;
     padding: 10px 15px;
     border-radius: 15px;
     cursor: pointer;
-  }
+}
 
-  #movieTitleInput {
+#movieTitleInput {
     margin-left: 10px;
-  }
+}
 
 h5 {
     font-weight: bolder;
@@ -146,7 +146,7 @@ h5 {
     margin-left: 3%;
     margin-right: 3%;
     border: solid 3px #C7BDBA;
-  }
+}
 
 #movieTitleInput {
     margin-left: 20px;
