@@ -120,7 +120,7 @@ $('#saveBtn').on("click", function(e){
     e.preventDefault();
     if(search !== null && search !== ""){
         saveSearch(search,posterUrl);
-        populateFavorites(posterUrl);
+        //populateFavorites(posterUrl);
     }
 })
 
@@ -131,12 +131,13 @@ function populateFavorites(){
     if (retArray == null){
         return;
     }else if (retArray !== null){
+        retArray.reverse();
         for (var i = 0; i < retArray.length; i++){
             var url = retArray[i].posterLink
             var moviePoster = document.createElement("img");
             moviePoster.className = "moviePoster";
             moviePoster.setAttribute("src",url);
-            $(".card-content").append(moviePoster);
+            $("#library").append(moviePoster);
         }
     }
 }

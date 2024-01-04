@@ -43,6 +43,10 @@ body {
     visibility: hidden;
 }
 
+.moviePoster{
+    width: 200px;
+}
+
 /* search bar styling */
 #movieSearchForm {
     display: flex;
