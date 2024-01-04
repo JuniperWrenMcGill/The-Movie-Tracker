@@ -47,6 +47,14 @@ body {
     width: 200px;
 }
 
+#library {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px;
+    justify-content: space-between;
+}
+
 /* search bar styling */
 #movieSearchForm {
     display: flex;
@@ -82,7 +90,7 @@ body {
     border-color:#a15230;
 }
 
-#saveBtn {
+.save {
     border-radius: 5px;
     background-image: linear-gradient( #4c1b0c,#a15230);
     border: solid 3px #C7BDBA;
