@@ -56,35 +56,25 @@ body {
   #movieTitleInput {
     margin-left: 10px;
   }
-  
-  /* footer styling */
-.footer {
-    width: 100%;
-}
 
 h5 {
     font-weight: bolder;
     font-size: 30px;
-    margin: 10px 20px 10px 20px
+    text-align: center;
 }
 
-h6 {
-    font-weight: bolder;
-    font-size: 30px;
-    margin: 10px 20px 10px 20px;
-}
 /* aligned footer sections */
 .sections {
     display: flex;
     flex-direction: row;
 }
 
-#sectionone {
-    width: 75%
+#sectionOne {
+    width: 50%;
 }
 
-#sectiontwo {
-    width: 75%
+#sectionTwo {
+    width: 50%
 }
 
 .mission {
@@ -107,7 +97,8 @@ h6 {
     font-weight: bold;
     color: #151312;
     margin: 10px 20px 10px 60px;
-    font-size: 25px;
+    font-size: 20px;
+    text-align: center;
 }
 
 .container {
@@ -122,19 +113,22 @@ h6 {
     font-size: 20px;
 }
 
+.footer-copyright {
+    margin-left: 10px;
+}
+
 @media (max-width: 800px) {
     
-   #sections {
-   display: flex;
-   flex-direction: row; /* Change to row to align items horizontally */
-   justify-content: space-between; /* Added to create space between the sections */
-   }
+    .sections {
+        display: flex;
+        flex-direction: column;
+    }
 
    #sectionOne {
     width: 100%;
    }
 
-   #sectionwo {
+   #sectionTwo {
     width: 100%;
    }
 
@@ -142,17 +136,7 @@ h6 {
     text-align: center;
    }
 
-   .links {
-    text-align: center;
-    display: flex; /* Used flexbox to align items */
-    justify-content: space-between; /* Added space between items */
-   }
-
    h5 {
-    text-align: center;
-   }
-
-   h6 {
     text-align: center;
    }
 
