@@ -139,6 +139,11 @@ h5 {
     justify-content: space-evenly;
 }
 
+.streaming-list{
+    justify-content:left;
+    list-style-type: none;
+}
+
 #movieSearchForm {
     display: flex;
     gap: 10px;
