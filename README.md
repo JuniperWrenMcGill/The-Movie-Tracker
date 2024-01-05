@@ -15,31 +15,17 @@ As fellow film lovers, we designed this web application to allow users to search
 
 
 ## Installation
-This is an web application so there is no installation for users. You can search your favorite movie titles by simply accessing the platform in your browser at <a href="<fill-in-published-site-link-here>" target="_blank">*published-site-link-here.</a>
+This is an web application so there is no installation for users. You can search your favorite movie titles by simply accessing the platform in your browser at <a href="https://juniperwrenmcgill.github.io/Group-Project-1/" target="_blank">https://juniperwrenmcgill.github.io/Group-Project-1/</a>
 
 ## USAGE
- ![screanshot of website, movie titles, and search bar are all clearly visable](assets/images/screenshot.png)
+![Screenshot of webpage](assets\Finished.png)
 
 ## Credits
 Huge shoutout to all collaberators who made this project possible! 
 
-Joseph Vanzandt: [Brief description of Collaborator1's contributions.]
-Chad Andari: [Brief description of Collaborator2's contributions.]
-Juniper McGill: [Brief description of Collaborator3's contributions.]
+- Joseph Vanzandt: CSS and HTML
+- Chad Andari: Head of JavaScript
+- Juniper McGill: README, CSS, HTML, code maintainer, and Team Coordinator.
 
 ## License
-This project is under constructino and is not licenced for public use. 
----
-
-
-<!-- ## User Story
-- AS A user
-- I WANT to add a movie title that I'd like to see to a website
-- SO THAT I can see where they're streaming.
-- GIVEN I want to find out where to watch a movie
-- WHEN I input the title
-- THEN I am presented with an image of the cover, where I can stream the movie, a quote from the movie, and an option to save that title.
-- WHEN I save a title, it is stored somewhere on the screen
-- THEN I can come back to it later after refresh or browser close, and still find where its streaming without retyping it
-- WHEN I have seen a title
-- THEN I can either mark it as viewed or remove it from the library -->
+- N/A
