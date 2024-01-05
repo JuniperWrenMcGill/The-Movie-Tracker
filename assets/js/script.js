@@ -17,7 +17,7 @@ $('#movieSearchForm').on("submit", function(e)
     e.preventDefault();
     $("#saveBtn").attr("style", "visibility: visible;");
     search = $('input').val();
-    omdbCall(search);
+    omdbCall(search,setSearch());
     // streamingServicesTest(search);
     $('input').val("");
 })
@@ -38,18 +38,17 @@ $("#clearBtn").on("click",function(e){
 })
 
 
-// $("#movieCard").on("click",function(e){
-//     e.preventDefault();
-//     // search = $(".moviePoster").id;
-//     alert();
-//     // omdbCall();
-// })
+
 
 
 
 
 
 //Functions
+
+function setSearch(handedTitle){
+    search = handedTitle;
+}
 function hideElement() {
     $(".quote").attr("style", "visibility:hidden");
 }
@@ -74,7 +73,7 @@ function omdbCall (search){
             $('.returned').attr("style", "visibility:visible;");
             // cb(search, posterUrl);
             $('#saveBtn').attr("style", "visibility:visible;");
-            return search = returned.Title;;
+            setSearch(returned.Title);
         }
     })
     hideElement();
@@ -145,10 +144,8 @@ function saveSearch(movieTitle, movieURL){
 
         //Populate localObj with information either passed to function or from global vars
         localObj.title = search;
-        alert(search);
         localObj.watched = false;
         localObj.posterLink = movieURL;
-
         retArray.push(localObj);
         var newString = JSON.stringify(retArray);
         localStorage.setItem("key", newString);
@@ -172,6 +169,7 @@ function populateFavorites(){
             $("#library").append(moviePoster);
         }
     }
+    createMovieListener();
 }
 
 function clearFavorites(){
@@ -259,6 +257,15 @@ function cleanerType(type){
         type = "as a Rental";
         return type;
     }
+}
+
+function createMovieListener(){
+    $(".moviePoster").on("click",function(e){
+        e.preventDefault();
+        search = this.id;
+        omdbCall(search,setSearch());
+        window.scrollTo(0,0);
+    });
 }
 
 //On Load
