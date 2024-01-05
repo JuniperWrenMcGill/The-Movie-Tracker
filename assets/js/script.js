@@ -136,7 +136,7 @@ $('#movieSearchForm').on("submit", function(e)
     e.preventDefault();
     search = $('input').val();
     omdbCall();
-    streamingServicesTest(search);
+    // streamingServicesTest(search);
     $('input').val("");
 })
 
