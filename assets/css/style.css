@@ -17,6 +17,30 @@ body {
     margin-left: 20px;
 }
 
+#movieSearchForm {
+    display: flex;
+    font-family: "Oswald", sans-serif;
+    font-size: 30px;
+    gap: 10px;
+    border-color: #4c1b0c;
+    border: 15px whitesmoke;
+    background-color: #a15230;
+    border-radius: 15px;
+    justify-content: center;
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+    border: solid 3px #C7BDBA;
+}
+
+#movieTitleInput {
+    margin-left: 10px;
+    font-family: "Oswald", sans-serif;
+    font-size: 30px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
 input[type="search"] {
     padding: 10px;
     border: 3px solid whitesmoke; 
@@ -34,6 +58,7 @@ input[type="search"] {
 
 #btn {
     background-color: #a15230;
+    font-family: "Oswald", sans-serif;
     color: #C7BDBA;
     border-radius: 13px;
     outline: none;
@@ -62,17 +87,13 @@ input[type="search"] {
 }
   
 input[type="submit"] {
+    font-family: "Oswald", sans-serif;
     background-color: #a15230;
     color:#C7BDBA;
     border: none;
     padding: 10px 15px;
     border-radius: 15px;
     cursor: pointer;
-}
-
-#movieTitleInput {
-    margin-left: 10px;
-    font-size: 20px;
 }
 
 h5 {
@@ -143,24 +164,6 @@ h5 {
 .streaming-list{
     justify-content:left;
     list-style-type: none;
-}
-
-#movieSearchForm {
-    display: flex;
-    gap: 10px;
-    border-color: #4c1b0c;
-    border: 15px whitesmoke;
-    background-color: #a15230;
-    border-radius: 15px;
-    justify-content: center;
-    margin-top: 1%;
-    margin-left: 3%;
-    margin-right: 3%;
-    border: solid 3px #C7BDBA;
-}
-
-#movieTitleInput {
-    margin-left: 20px;
 }
 
 /* Footer */
