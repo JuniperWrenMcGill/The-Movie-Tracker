@@ -174,7 +174,9 @@ function populateFavorites(){
 
 function clearFavorites(){
     $("#library").empty();
+
 }
+
 
 function cleanerService(location){
     if (location == "apple"){
