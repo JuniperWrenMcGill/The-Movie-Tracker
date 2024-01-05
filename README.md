@@ -18,7 +18,7 @@ As fellow film lovers, we designed this web application to allow users to search
 This is an web application so there is no installation for users. You can search your favorite movie titles by simply accessing the platform in your browser at <a href="https://juniperwrenmcgill.github.io/Group-Project-1/" target="_blank">https://juniperwrenmcgill.github.io/Group-Project-1/</a>
 
 ## USAGE
-![Screenshot of webpage](assets\Finished.png)
+![Screenshot of webpage](./assets/Finished.png)
 
 ## Credits
 Huge shoutout to all collaberators who made this project possible! 
