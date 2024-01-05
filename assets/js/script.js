@@ -17,8 +17,8 @@ $('#movieSearchForm').on("submit", function(e)
     e.preventDefault();
     $("#saveBtn").attr("style", "visibility: visible;");
     search = $('input').val();
-    omdbCall();
-    streamingServicesTest(search);
+    omdbCall(search);
+    // streamingServicesTest(search);
     $('input').val("");
 })
 
@@ -38,6 +38,13 @@ $("#clearBtn").on("click",function(e){
 })
 
 
+// $("#movieCard").on("click",function(e){
+//     e.preventDefault();
+//     // search = $(".moviePoster").id;
+//     alert();
+//     // omdbCall();
+// })
+
 
 
 
@@ -47,14 +54,14 @@ function hideElement() {
     $(".quote").attr("style", "visibility:hidden");
 }
 
-function omdbCall (){
+function omdbCall (search){
     var link = "https://www.omdbapi.com/?apikey=17b8058a&t=" + search;
     fetch (link)
     .then((response)=> response.json())
     .then((returned)=>{
 
         if (returned.Response === "False"){
-            //Let the user know that their movie wasn't found
+            //TODO: Let the user know that their movie wasn't found
         } else{
             console.log(returned);
             console.log(returned.Actors);
@@ -67,6 +74,7 @@ function omdbCall (){
             $('.returned').attr("style", "visibility:visible;");
             // cb(search, posterUrl);
             $('#saveBtn').attr("style", "visibility:visible;");
+            return search = returned.Title;;
         }
     })
     hideElement();
@@ -105,7 +113,6 @@ async function streamingServicesTest(title){
             var type = streamingInfoArray[i].streamingType;
             var vidQuality = streamingInfoArray[i].quality;
             var testLine = document.createElement("li");
-            // testLine.textContent = service + " " + type;
             testLine.textContent = cleanerService(service) + " " + cleanerType(type) + " in " + vidQuality + " quality";
             document.querySelector(".streaming-list-ul").appendChild(testLine);
             }
@@ -122,7 +129,7 @@ function saveSearch(movieTitle, movieURL){
     var array = [];
 
     //Populate localObj with information either passed to function or from global vars
-    localObj.title = movieTitle;
+    localObj.title = search;
     localObj.watched = false;
     localObj.posterLink = movieURL;
     
@@ -137,7 +144,8 @@ function saveSearch(movieTitle, movieURL){
         //if there is already an array in localStorage, populate localObj and push it into the returned, local array.
 
         //Populate localObj with information either passed to function or from global vars
-        localObj.title = movieTitle;
+        localObj.title = search;
+        alert(search);
         localObj.watched = false;
         localObj.posterLink = movieURL;
 
@@ -156,8 +164,10 @@ function populateFavorites(){
         retArray.reverse();
         for (var i = 0; i < retArray.length; i++){
             var url = retArray[i].posterLink
+            var movieId = retArray[i].title;
             var moviePoster = document.createElement("img");
             moviePoster.className = "moviePoster";
+            moviePoster.id = movieId;
             moviePoster.setAttribute("src",url);
             $("#library").append(moviePoster);
         }
