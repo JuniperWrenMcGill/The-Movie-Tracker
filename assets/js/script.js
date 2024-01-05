@@ -1,17 +1,48 @@
+//Global Variables
 var posterUrl = "";
 var search = "";
-
-//localStorage work
-//store a title, poster link, a bool for watched or not watched, and the links to the API calls.
-
 var localObj = {
     title: "",
     posterLink: "",
     watched: false,
 };
 
-//Once a user clicks a save button, localObj will be populated and stored locally into an array of other objects
 
+
+
+
+//Event Listeners
+$('#movieSearchForm').on("submit", function(e)
+{
+    e.preventDefault();
+    $("#saveBtn").attr("style", "visibility: visible;");
+    search = $('input').val();
+    omdbCall();
+    streamingServicesTest(search);
+    $('input').val("");
+})
+
+$('#saveBtn').on("click", function(e){
+    e.preventDefault();
+    if(search !== null && search !== ""){
+        saveSearch(search,posterUrl);
+        populateFavorites();
+        $("#saveBtn").attr("style", "visibility: hidden;");
+    }
+})
+
+$("#clearBtn").on("click",function(e){
+    e.preventDefault();
+    localStorage.clear();
+    clearFavorites();
+})
+
+
+
+
+
+
+//Functions
 function hideElement() {
     $(".quote").attr("style", "visibility:hidden");
 }
@@ -63,39 +94,24 @@ async function streamingServicesTest(title){
     
     try {
         const response = await fetch(url, options);
-        const result = await response.json();
-
-        // var resultArray = result[0];
-        console.log(result.result[0].streamingInfo.us);
-        var streamingInfoArray = result.result[0].streamingInfo.us;
-        for (var i = 0; i  < result.result[0].streamingInfo.us.length; i++){
-            if (streamingInfoArray[i].service === "apple"){
-                
-                    var listEL = document.createElement('li');
+        const output = await response.json();
+        $(".streaming-paragraph").attr("style","visibility:visible;");
+        $(".streaming-list-ul").empty();
+        var outputArray=output;
+        console.log(outputArray);
+        var streamingInfoArray = outputArray.result[0].streamingInfo.us;
+        for (var i = 0; i < streamingInfoArray.length; i++){
+            var service = streamingInfoArray[i].service;
+            var type = streamingInfoArray[i].streamingType;
+            var vidQuality = streamingInfoArray[i].quality;
+            var testLine = document.createElement("li");
+            // testLine.textContent = service + " " + type;
+            testLine.textContent = cleanerService(service) + " " + cleanerType(type) + " in " + vidQuality + " quality";
+            document.querySelector(".streaming-list-ul").appendChild(testLine);
             }
-        //     let location = result.result[0].streamingInfo.us[i].service;
-        //     let type = result.result[0].streamingInfo.us[i].streamingType;
-        //     streamService.textContent=location + "                      " + type;
-        //     document.querySelector(".streaming-list").appendChild(listEL);
-                
-            }
-
-
-        // var streamService = document.createElement('li');
-        // streamService.textContent = "How to View"
-        // document.querySelector(".streaming-list").appendChild(streamService);
-        // for(var i = 0; i < result.result[0].streamingInfo.us.length; i++){
-        //     console.log(result.result[0].streamingInfo.us[i].service);
-        //     var listEL = document.createElement('li');
-        //     let location = result.result[0].streamingInfo.us[i].service;
-        //     let type = result.result[0].streamingInfo.us[i].streamingType;
-        //     streamService.textContent=location + "                      " + type;
-        //     document.querySelector(".streaming-list").appendChild(listEL);
-        // }
-
         } catch (error) {
              console.error();
-        }
+            }
 }
 
 function saveSearch(movieTitle, movieURL){
@@ -131,30 +147,6 @@ function saveSearch(movieTitle, movieURL){
     }
 }
 
-$('#movieSearchForm').on("submit", function(e)
-{
-    e.preventDefault();
-    search = $('input').val();
-    omdbCall();
-    // streamingServicesTest(search);
-    $('input').val("");
-})
-
-$('#saveBtn').on("click", function(e){
-    e.preventDefault();
-    if(search !== null && search !== ""){
-        saveSearch(search,posterUrl);
-        populateFavorites();
-    }
-})
-
-$("#clearBtn").on("click",function(e){
-    e.preventDefault();
-    localStorage.clear();
-    clearFavorites();
-})
-
-
 function populateFavorites(){
     clearFavorites();
     var retArray = JSON.parse(localStorage.getItem("key"));
@@ -176,5 +168,88 @@ function clearFavorites(){
     $("#library").empty();
 }
 
-//shows locally stored favorites on load
+function cleanerService(location){
+    if (location == "apple"){
+        location = "AppleTV";
+        return location;
+    }
+    if (location == "prime"){
+        location = "Amazon Prime";
+        return location;
+    }
+    if (location == "hulu"){
+        location = "Hulu";
+        return location;
+    }
+    if (location == "hbo"){
+        location = "HBO";
+        return location;
+    }
+    if (location == "britbox"){
+        location = "BritBox";
+        return location;
+    }
+    if (location == "curiosity"){
+        location = "CuriosityStream";
+        return location;
+    }
+    if (location == "disney"){
+        location = "Disney+";
+        return location;
+    }
+    if (location == "iplayer"){
+        location = "iPlayer";
+        return location;
+    }
+    if (location == "netflix"){
+        location = "Netflix";
+        return location;
+    }
+    if (location == "curiosity"){
+        location = "CuriosityStream";
+        return location;
+    }
+    if (location == "paramount"){
+        location = "Paramount+";
+        return location;
+    }
+    if (location == "peacock"){
+        location = "PeacockTV";
+        return location;
+    }
+    if (location == "starz"){
+        location = "Starz";
+        return location;
+    }
+    if (location == "showtime"){
+        location = "Showtime";
+        return location;
+    }
+}
+
+function cleanerType(type){
+
+    if (type == "subscription"){
+        type = "with a Subscription";
+        return type;
+    }
+    if (type == "free"){
+        type = "for Free";
+        return type;
+    }
+    if (type == "buy"){
+        type = "as a Purchase";
+        return type;
+    }
+    if (type == "addon"){
+        type = "as an Add-on";
+        return type;
+    }
+    if (type == "rent"){
+        type = "as a Rental";
+        return type;
+    }
+}
+
+//On Load
 populateFavorites();
