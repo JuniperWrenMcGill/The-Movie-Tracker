@@ -17,8 +17,8 @@ $('#movieSearchForm').on("submit", function(e)
     e.preventDefault();
     $("#saveBtn").attr("style", "visibility: visible;");
     search = $('input').val();
-    omdbCall(search);
-    // streamingServicesTest(search);
+    streamingServicesTest(search);
+    omdbCall(search,setSearch());
     $('input').val("");
 })
 
@@ -38,22 +38,25 @@ $("#clearBtn").on("click",function(e){
 })
 
 
-// $("#movieCard").on("click",function(e){
-//     e.preventDefault();
-//     // search = $(".moviePoster").id;
-//     alert();
-//     // omdbCall();
-// })
+
 
 
 
 
 
 //Functions
+
+//This lets us set the global variable from within a .then function.
+function setSearch(handedTitle){
+    search = handedTitle;
+}
+
+//This hides an element.
 function hideElement() {
     $(".quote").attr("style", "visibility:hidden");
 }
 
+//This calls the OMDB API and displays the necessary content to the user.
 function omdbCall (search){
     var link = "https://www.omdbapi.com/?apikey=17b8058a&t=" + search;
     fetch (link)
@@ -74,12 +77,13 @@ function omdbCall (search){
             $('.returned').attr("style", "visibility:visible;");
             // cb(search, posterUrl);
             $('#saveBtn').attr("style", "visibility:visible;");
-            return search = returned.Title;;
+            setSearch(returned.Title);
         }
     })
     hideElement();
 }
 
+//This calls the streaming services API as well as delivers the output.
 async function streamingServicesTest(title){
     var str = title;
     var strArray = str.split(/(\s+)/);
@@ -107,20 +111,25 @@ async function streamingServicesTest(title){
         $(".streaming-list-ul").empty();
         var outputArray=output;
         console.log(outputArray);
+        var stringArray =[];
         var streamingInfoArray = outputArray.result[0].streamingInfo.us;
         for (var i = 0; i < streamingInfoArray.length; i++){
             var service = streamingInfoArray[i].service;
             var type = streamingInfoArray[i].streamingType;
-            var vidQuality = streamingInfoArray[i].quality;
+            var string = cleanerService(service) + " " + cleanerType(type);
+            var service = streamingInfoArray[i].service;
+            var type = streamingInfoArray[i].streamingType;
             var testLine = document.createElement("li");
-            testLine.textContent = cleanerService(service) + " " + cleanerType(type) + " in " + vidQuality + " quality";
+            testLine.textContent = cleanerService(service) + " " + cleanerType(type);
             document.querySelector(".streaming-list-ul").appendChild(testLine);
+            stringArray.push(testLine);
             }
         } catch (error) {
              console.error();
             }
 }
 
+//This writes certain information from the API calls to localStorage
 function saveSearch(movieTitle, movieURL){
     var retArray = JSON.parse(localStorage.getItem("key"));
     
@@ -145,16 +154,16 @@ function saveSearch(movieTitle, movieURL){
 
         //Populate localObj with information either passed to function or from global vars
         localObj.title = search;
-        alert(search);
         localObj.watched = false;
         localObj.posterLink = movieURL;
-
         retArray.push(localObj);
         var newString = JSON.stringify(retArray);
         localStorage.setItem("key", newString);
     }
 }
 
+//This function populates the favorites bar, taking information from localStorage and creating tiles for each item.
+//It also tags/classifies the new elements appropriately and creates an eventlistenner so they can be used as buttons.
 function populateFavorites(){
     clearFavorites();
     var retArray = JSON.parse(localStorage.getItem("key"));
@@ -172,12 +181,16 @@ function populateFavorites(){
             $("#library").append(moviePoster);
         }
     }
+    createMovieListener();
 }
 
+//This function simply clears the favorites so that it can be re-populated
 function clearFavorites(){
     $("#library").empty();
+
 }
 
+//This function cleans up the output of the streaming services API with more quickly recognizeable output.
 function cleanerService(location){
     if (location == "apple"){
         location = "AppleTV";
@@ -237,6 +250,7 @@ function cleanerService(location){
     }
 }
 
+//Same as cleaner function, but for the type of media. 
 function cleanerType(type){
 
     if (type == "subscription"){
@@ -259,6 +273,17 @@ function cleanerType(type){
         type = "as a Rental";
         return type;
     }
+}
+
+//Since creating a global listener doesn't seem to work for elements created in the code, this function is called when the 
+//favorites bar populates.
+function createMovieListener(){
+    $(".moviePoster").on("click",function(e){
+        e.preventDefault();
+        search = this.id;
+        omdbCall(search,setSearch());
+        window.scrollTo(0,0);
+    });
 }
 
 //On Load
