@@ -9,9 +9,7 @@ body {
     flex-direction: column;
 }
 
-
 /* Search Bar */
-
 
 .brand-logo {
     margin-left: 20px;
@@ -96,7 +94,6 @@ input[type="submit"] {
 
 /* Cards */
 
-
 .row {
     margin: 100px 50px;
     background-image: linear-gradient( #a15230, #4c1b0c);
@@ -157,15 +154,6 @@ h5 {
     list-style-type: none;
     
 }
-
-.streaming-list-li{
-    border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 8px;
-    background-color: #f8f8f8;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-} 
-
 
 /* Footer */
 
