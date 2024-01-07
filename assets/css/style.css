@@ -52,9 +52,7 @@ input[type="search"] {
     background-color: #a15230;
 }
 
-
 /* Buttons */
-
 
 #btn {
     background-color: #a15230;
@@ -154,10 +152,20 @@ h5 {
     justify-content: space-evenly;
 }
 
-.streaming-list{
-    justify-content:left;
+.streaming-list-{
+    justify-content:right;
     list-style-type: none;
+    
 }
+
+.streaming-list-li{
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} 
+
 
 /* Footer */
 
@@ -245,7 +253,4 @@ h5 {
     font-size: 15px;
    }
 }
-
-
-
 
