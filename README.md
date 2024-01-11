@@ -17,7 +17,7 @@ As fellow film lovers, we designed this web application to allow users to search
 This is an web application so there is no installation for users. You can search your favorite movie titles by simply accessing the platform in your browser at <a href="https://juniperwrenmcgill.github.io/The-Movie-Tracker/" target="_blank">https://juniperwrenmcgill.github.io/The-Movie-Tracker/</a>
 
 ## USAGE
-![Screenshot of webpage](assets\Deployed.png)
+![Screenshot of webpage](assets/Deployed.png)
 
 ## Credits
 Huge shoutout to all collaberators who made this project possible! 
